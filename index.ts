@@ -1,11 +1,14 @@
 import express, { Express, Request, Response } from "express";
 import authRoutes from "./routes/authRoutes.js";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 const port = 8000;
 const app: Express = express();
+
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //middleware
 app.use((req: Request, res: Response, next) => {
