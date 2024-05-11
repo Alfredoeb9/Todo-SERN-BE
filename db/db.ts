@@ -1,6 +1,7 @@
 import { createClient } from "@libsql/client";
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/libsql";
+import * as schema from "./schema.js";
 
 // connect to database
 const client = createClient({
@@ -8,4 +9,4 @@ const client = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
-export const db = drizzle(client);
+export const db = drizzle(client, { schema, logger: true });
