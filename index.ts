@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from "express";
-import authRoutes from "./routes/authRoutes";
+import authRoutes from "./routes/authRoutes.js";
 import cors from "cors";
 
 const port = 8000;
