@@ -5,6 +5,6 @@ export const login = async (req: Request, res: Response) => {
 
   try {
     console.log(email);
-    return res.status(200).json({ msg: "yes" });
+    return res.status(200).json({ message: "User logged in" });
   } catch (error) {}
 };
