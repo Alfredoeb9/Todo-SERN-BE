@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend server for Todo-Sern",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "preserve": "npm run build",
+    "dev": "tsx watch index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "4.17.21",
+    "@types/node": "20.12.11",
+    "body-parser": "1.20.2",
+    "cors": "2.8.5",
+    "express": "4.19.2",
+    "nodemon": "3.1.0",
+    "ts-node": "10.9.2",
+    "tsx": "^4.9.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
