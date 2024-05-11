@@ -1,5 +1,6 @@
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import {
+  int,
   integer,
   sqliteTable,
   sqliteTableCreator,
@@ -21,21 +22,33 @@ export const user = createTable(
   })
 );
 
+export const usersRelations = relations(user, ({ one, many }) => ({
+  posts: many(todos),
+}));
+
 export const todos = createTable(
   "todos",
   {
-    id: integer("id").primaryKey(),
+    id: int("id").primaryKey(),
     title: text("title").notNull(),
+    email: text("email").notNull(),
     task: text("task").notNull(),
     priority: text("priority", { enum: ["High", "Medium", "Low"] }).notNull(),
-    createdAt: integer("created_at")
+    createdAt: int("created_at", { mode: "timestamp" })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
-    updatedAt: integer("updated_at")
+    updatedAt: int("updated_at", { mode: "timestamp" })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
   },
   (todos) => ({
-    nameIdx: uniqueIndex("nameIdx").on(todos.title),
+    titleTodoIdx: uniqueIndex("titleTodoIdx").on(todos.title),
   })
 );
+
+export const todosRelations = relations(todos, ({ one }) => ({
+  author: one(user, {
+    fields: [todos.email],
+    references: [user.email],
+  }),
+}));
