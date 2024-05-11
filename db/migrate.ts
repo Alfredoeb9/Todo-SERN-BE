@@ -1,6 +1,6 @@
 import { migrate } from "drizzle-orm/libsql/migrator";
 
-import { db } from "./db.js";
+import { db } from "./index.js";
 
 // migrate function is called with two argurments: drizzle database and
 // where the migrations files will be created
@@ -11,7 +11,7 @@ import { db } from "./db.js";
  * path. The migration result (success or failure) is logged to the console, and
  * the process is terminated
  */
-migrate(db, { migrationsFolder: "db/migrations" })
+await migrate(db, { migrationsFolder: "db/migrations" })
   .then(() => {
     console.log("Migrations Completed!");
     process.exit(0);
