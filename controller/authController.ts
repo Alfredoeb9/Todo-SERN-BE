@@ -3,7 +3,7 @@ import { db } from "../db/index.js";
 import { user } from "../db/schema.js";
 import { eq } from "drizzle-orm";
 
-async function emailRegex(email) {
+async function emailRegex(email: string) {
   const emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
   const isValidEmail = emailRegex.test(email);
   return isValidEmail;
