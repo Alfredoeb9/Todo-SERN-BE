@@ -34,3 +34,18 @@ export const removeTodo = async (req: Request, res: Response) => {
     return res.status(400).json({ error: error.message });
   }
 };
+
+export const getPosts = async (req: Request, res: Response) => {
+  try {
+    const user_email = req.user[0].email;
+
+    const todo = await db
+      .select()
+      .from(todos)
+      .where(eq(todos.email, user_email));
+
+    return res.status(201).json({ data: todo });
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
