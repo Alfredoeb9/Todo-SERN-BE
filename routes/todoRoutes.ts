@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  completedTodo,
   getPosts,
   removeTodo,
   submitTodo,
@@ -13,5 +14,6 @@ router.delete("/remove", removeTodo);
 
 router.use(requireAuth);
 router.get("/posts", getPosts);
+router.put("/complete", completedTodo);
 
 export default router;
