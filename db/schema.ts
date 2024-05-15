@@ -34,6 +34,7 @@ export const todos = createTable(
     email: text("email").notNull(),
     task: text("task").notNull(),
     priority: text("priority", { enum: ["High", "Medium", "Low"] }).notNull(),
+    completed: int("completed", { mode: "boolean" }).notNull().default(false),
     createdAt: int("created_at", { mode: "timestamp" })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
