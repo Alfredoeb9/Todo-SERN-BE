@@ -11,7 +11,7 @@ import { db } from "./index.js";
  * path. The migration result (success or failure) is logged to the console, and
  * the process is terminated
  */
-await migrate(db, { migrationsFolder: "db/migrations" })
+migrate(db, { migrationsFolder: "db/migrations" })
   .then(() => {
     console.log("Migrations Completed!");
     process.exit(0);
