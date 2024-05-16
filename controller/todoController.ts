@@ -65,7 +65,7 @@ export const completedTodo = async (req: Request, res: Response) => {
       .from(todos)
       .where(eq(todos.email, user_email));
 
-    return res.status(201).json({ data: todo });
+    return res.status(201).json({ todo });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }
