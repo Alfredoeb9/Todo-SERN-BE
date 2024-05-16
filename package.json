@@ -8,10 +8,7 @@
     "generate": "drizzle-kit generate",
     "push": "drizzle-kit push",
     "migrate": "drizzle-kit migrate",
-    "build": "rm -rf dist && tsc",
-    "prestart": "npm run build",
-    "start": "node dist/index.js",
-    "preserve": "npm run build",
+    "build": "rimraf dist && tsc",
     "dev": "tsx watch index.ts"
   },
   "author": "",
@@ -34,6 +31,7 @@
     "dotenv": "^16.4.5",
     "drizzle-kit": "0.21.2",
     "nodemon": "^3.1.0",
+    "rimraf": "^5.0.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
