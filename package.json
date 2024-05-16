@@ -18,9 +18,7 @@
     "body-parser": "1.20.2",
     "cors": "2.8.5",
     "drizzle-orm": "^0.30.10",
-    "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "method-override": "^3.0.0",
     "tsx": "^4.9.4"
   },
   "devDependencies": {
